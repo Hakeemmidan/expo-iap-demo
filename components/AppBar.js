@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   HStack,
   Button,
@@ -6,9 +6,10 @@ import {
   Box,
   StatusBar,
 } from 'native-base';
+import { AppContext } from './AppContext';
 
 export const AppBar = () => {
-  const user = {}; // we'll fill this in once we set up our OAuth
+  const {state: { currentUser }} = useContext(AppContext);
 
   return (
     <>
@@ -27,9 +28,9 @@ export const AppBar = () => {
           </Text>
         </HStack>
         <HStack alignItems="center">
-          {user.email ? (
+          {currentUser.email ? (
             <HStack space="sm" alignItems="center">
-              <Text color="white">{user.email}</Text>
+              <Text color="white">{currentUser.email}</Text>
               <Button size="sm" colorScheme="secondary" variant="subtle">logout</Button>
             </HStack>
           ) : (
