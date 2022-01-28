@@ -1,23 +1,23 @@
 import React from "react";
 import {
-  Text,
-  Center,
   NativeBaseProvider,
   VStack,
+  ScrollView,
 } from "native-base";
 import { AppContextProvider } from "./components/AppContext";
 import { AppBar } from "./components/AppBar";
+import { ChargeList } from "./components/ChargeList";
 
 export default function App() {
   return (
     <NativeBaseProvider>
       <AppContextProvider> 
         <AppBar />
-        <Center flex={1}>
-          <VStack alignItems="center">
-            <Text>Hello world</Text>
-          </VStack>
-        </Center>
+        <VStack alignItems="center">
+          <ScrollView width="full">
+            <ChargeList />
+          </ScrollView>
+        </VStack>
       </AppContextProvider>
     </NativeBaseProvider>
   );
