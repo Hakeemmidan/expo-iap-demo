@@ -42,7 +42,7 @@ export default function App() {
   
   return (
     <NativeBaseProvider>
-      <AppBar currentUser={currentUser} />
+      <AppBar auth={auth} currentUser={currentUser} />
       <Center>
         <Heading>Buy Pineapples</Heading>
         <Text fontSize="6xl">🍍</Text>

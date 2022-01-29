@@ -7,8 +7,9 @@ import {
   StatusBar,
 } from 'native-base';
 import { LoginWithGoogle } from './LoginWithGoogle';
+import { signOut } from 'firebase/auth';
 
-export const AppBar = ({ currentUser }) => {
+export const AppBar = ({ auth, currentUser }) => {
   return (
     <>
       <StatusBar backgroundColor="#3700B3" barStyle="light-content" />
@@ -29,7 +30,14 @@ export const AppBar = ({ currentUser }) => {
           {currentUser.email ? (
             <HStack space="sm" alignItems="center">
               <Text color="white">{currentUser.email}</Text>
-              <Button size="sm" colorScheme="secondary" variant="subtle">logout</Button>
+              <Button 
+                size="sm"
+                colorScheme="secondary"
+                variant="subtle"
+                onPress={() => signOut(auth)}
+              >
+                logout
+              </Button>
             </HStack>
           ) : (
             <LoginWithGoogle size="md" colorScheme="primary" variant="subtle" />
