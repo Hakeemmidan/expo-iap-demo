@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { openBrowserAsync } from 'expo-web-browser';
 import { Box, Button } from 'native-base';
-import { AppContext } from './AppContext';
 import { LoginWithGoogle } from './LoginWithGoogle';
 
-export const Checkout = () => {
-  const {state: { currentUser }} = useContext(AppContext);
-
+export const Checkout = ({ currentUser }) => {
   return (
     <Box my="2">
       {currentUser.displayName ? (

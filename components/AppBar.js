@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   HStack,
   Button,
@@ -6,12 +6,9 @@ import {
   Box,
   StatusBar,
 } from 'native-base';
-import { AppContext } from './AppContext';
 import { LoginWithGoogle } from './LoginWithGoogle';
 
-export const AppBar = () => {
-  const {state: { currentUser }} = useContext(AppContext);
-
+export const AppBar = ({ currentUser }) => {
   return (
     <>
       <StatusBar backgroundColor="#3700B3" barStyle="light-content" />
