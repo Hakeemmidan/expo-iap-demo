@@ -1,23 +1,29 @@
 import React from "react";
 import {
   NativeBaseProvider,
-  VStack,
   ScrollView,
+  Heading,
+  Center,
+  Text,
 } from "native-base";
 import { AppContextProvider } from "./components/AppContext";
 import { AppBar } from "./components/AppBar";
+import { Checkout } from "./components/Checkout";
 import { ChargeList } from "./components/ChargeList";
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <AppContextProvider> 
+      <AppContextProvider>
         <AppBar />
-        <VStack alignItems="center">
+        <Center>
+          <Heading>Buy Pineapples</Heading>
+          <Text fontSize="6xl">🍍</Text>
+          <Checkout />
           <ScrollView width="full">
             <ChargeList />
           </ScrollView>
-        </VStack>
+        </Center>
       </AppContextProvider>
     </NativeBaseProvider>
   );

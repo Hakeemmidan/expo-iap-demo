@@ -7,6 +7,7 @@ import {
   StatusBar,
 } from 'native-base';
 import { AppContext } from './AppContext';
+import { LoginWithGoogle } from './LoginWithGoogle';
 
 export const AppBar = () => {
   const {state: { currentUser }} = useContext(AppContext);
@@ -34,9 +35,7 @@ export const AppBar = () => {
               <Button size="sm" colorScheme="secondary" variant="subtle">logout</Button>
             </HStack>
           ) : (
-            <Button size="md" colorScheme="primary" variant="subtle" >
-              Login with Google
-            </Button>
+            <LoginWithGoogle size="md" colorScheme="primary" variant="subtle" />
           )}
         </HStack>
       </HStack>
