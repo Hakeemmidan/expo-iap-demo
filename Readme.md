@@ -7,7 +7,7 @@ It's a simple web/iOS/Android app that lets users signup, 'buy pineapples', and 
 1. `yarn install`
 2. `yarn start`
 
-## Try it out,
+## Workflow
 1. Login with Google
 2. Click on 'Checkout'
 3. Fill out the checkout page
