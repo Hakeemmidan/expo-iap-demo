@@ -27,9 +27,9 @@ export const AppBar = ({ auth, currentUser }) => {
           </Text>
         </HStack>
         <HStack alignItems="center">
-          {currentUser.email ? (
+          {currentUser.displayName ? (
             <HStack space="sm" alignItems="center">
-              <Text color="white">{currentUser.email}</Text>
+              <Text color="white">{currentUser.displayName}</Text>
               <Button 
                 size="sm"
                 colorScheme="secondary"
