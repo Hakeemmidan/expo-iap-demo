@@ -1,5 +1,7 @@
 # Buy Pineapples
-A simple web/iOS/Android app that lets users signup, 'buy pineapples', and view their previous transactions.
+This app is associated with [this tutorial](https://dented-laundry-e53.notion.site/Create-a-React-Native-App-iOS-Android-and-web-with-In-App-Purchases-using-Expo-Firebase-Zapier-c5d7fc9dd17e4489929fafb30376e2f9), and is used as a reference in it.
+
+It's a simple web/iOS/Android app that lets users signup, 'buy pineapples', and view their previous transactions.
 
 ## Setup
 1. `yarn install`
@@ -17,7 +19,7 @@ A simple web/iOS/Android app that lets users signup, 'buy pineapples', and view 
         - 4000000000003220
       - Decline
         - 4000000000000002
-4. You should now see the transaction showing in the UI after you close the checkout page
+4. You should now see the transaction showing in the UI after you close the checkout window
 
 ## Tools used (and the use behind each):
 - [React Native](https://reactnative.dev/)
