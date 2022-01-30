@@ -6,7 +6,7 @@ const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
   authDomain: 'pineapples.firebaseapp.com',
   databaseURL: 'https://pineapples-default-rtdb.firebaseio.com',
-  projectId: 'pineapples',
+  projectId: 'pineapples-de10f',
   storageBucket: 'pineapples.appspot.com',
 };
 

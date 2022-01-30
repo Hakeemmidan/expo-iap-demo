@@ -47,9 +47,11 @@ export default function App() {
         <Heading>Buy Pineapples</Heading>
         <Text fontSize="6xl">🍍</Text>
         <Checkout currentUser={currentUser} />
-        <ScrollView width="full">
-          <ChargeList />
-        </ScrollView>
+        {currentUser.uid && (
+          <ScrollView width="full">
+            <ChargeList currentUser={currentUser} />
+          </ScrollView>
+        )}
       </Center>
     </NativeBaseProvider>
   );

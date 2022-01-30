@@ -1,46 +1,39 @@
+import React, { useState, useEffect } from 'react';
 import { Pressable, Text, Box, HStack, Center } from 'native-base';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { openBrowserAsync } from 'expo-web-browser';
-import React from 'react';
+import { firestore } from '../firebase';
 
-const mockData = [
-  {
-    amount: 2.37,
-    created_formatted: '2022-01-25 16:05:11 +0000',
-    currency: 'usd',
-    receipt_url:
-      'https://pay.stripe.com/receipts/acct_1KKo2TI2dUUQ0TAe/ch_3KLrIYI2dUUQ0TAe0613T697/rcpt_L1v9shkgWXdBlnQNBCK1p9oyXeh5GRs',
-    status: 'succeeded',
-    stripe_charge_id: 'ch_3KLrIYI2dUUQ0TAe0613T697',
-  },
-  {
-    amount: 4.32,
-    created_formatted: '2022-01-25 17:05:11 +0000',
-    currency: 'usd',
-    receipt_url:
-      'https://pay.stripe.com/receipts/acct_1KKo2TI2dUUQ0TAe/ch_3KLrIYI2dUUQ0TAe0613T697/rcpt_L1v9shkgWXdBlnQNBCK1p9oyXeh5GRs',
-    status: 'succeeded',
-    stripe_charge_id: 'ch_3KLrIYI2dUUQ0TAe0613T697_2',
-  },
-  {
-    amount: 7.93,
-    created_formatted: '2022-01-25 18:05:11 +0000',
-    currency: 'usd',
-    receipt_url:
-      'https://pay.stripe.com/receipts/acct_1KKo2TI2dUUQ0TAe/ch_3KLrIYI2dUUQ0TAe0613T697/rcpt_L1v9shkgWXdBlnQNBCK1p9oyXeh5GRs',
-    status: 'failed',
-    stripe_charge_id: 'ch_3KLrIYI2dUUQ0TAe0613T697_3',
-  },
-];
-
-export const ChargeList = () => {
+export const ChargeList = ({ currentUser }) => {
+  const [chargesList, setChargeList] = useState([]);
   let statusTxt;
   let amtTxt;
+
+  useEffect(() => {
+    try {
+      const chargesCollection = collection(firestore, 'stripe', currentUser.email.toLowerCase(), 'charges');
+      let formattedCharges = [];
+
+      onSnapshot((chargesCollection), (chargesSnapshot) => {
+        formattedCharges = [];
+
+        chargesSnapshot.forEach((doc) => {
+          const chargeListItem = doc.data();
+          formattedCharges.push(chargeListItem);
+        });
+
+        setChargeList(formattedCharges);
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   return (
     <Center>
       <Text fontSize="2xl">Your previous charges</Text>
       <Text>(click on card to view receipt)</Text>
-      {mockData.map((item) => {
+      {chargesList.map((item) => {
         switch (item.status) {
           case 'succeeded':
             statusTxt = '✔️ Succeeded';
@@ -62,7 +55,11 @@ export const ChargeList = () => {
         }
 
         return (
-          <Pressable key={item.stripe_charge_id} my="5" onPress={() => openBrowserAsync(item.receipt_url)}>
+          <Pressable
+            key={item.stripe_charge_id}
+            my="5"
+            onPress={() => openBrowserAsync(item.receipt_url)}
+          >
             <HStack
               bg="amber.50"
               p="5"
