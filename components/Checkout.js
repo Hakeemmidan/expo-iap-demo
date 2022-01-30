@@ -5,17 +5,17 @@ import { LoginWithGoogle } from './LoginWithGoogle';
 
 export const Checkout = ({ currentUser }) => {
   return (
-    <Box my="2">
-      {currentUser.displayName ? (
+    <Box mt="4" mb="8">
+      {currentUser.email ? (
         <Button
           onPress={() =>
-            openBrowserAsync('<YOUR_STRIPE_PAYMENT_URL>')
+            openBrowserAsync('https://buy.stripe.com/test_4gw4gEf82dzudWg7ss')
           }
         >
           Checkout
         </Button>
       ) : (
-        <LoginWithGoogle size="lg" colorScheme="primary" variant="solid" /> 
+        <LoginWithGoogle size="lg" colorScheme="primary" variant="solid" />
       )}
     </Box>
   );
