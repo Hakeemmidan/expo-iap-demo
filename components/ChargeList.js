@@ -14,6 +14,7 @@ export const ChargeList = ({ currentUser }) => {
       const chargesCollection = collection(firestore, 'stripe', currentUser.email.toLowerCase(), 'charges');
       let formattedCharges = [];
 
+      // Listen for changes in chargesCollection
       onSnapshot((chargesCollection), (chargesSnapshot) => {
         formattedCharges = [];
 
