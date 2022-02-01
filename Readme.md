@@ -25,7 +25,7 @@ It's a simple web/iOS/Android app that lets users signup, 'buy pineapples', and 
 - [React Native](https://reactnative.dev/)
     - For making the UI
 - [Native Base](https://nativebase.io/)
-    - Web compatible React Native (iOS/Android) component library
+    - Web compatible React Native component library
 - [Expo](https://expo.dev/)
     - For making and deploying a web/iOS/Android compatible app using React Native
 - [Firebase](https://firebase.google.com/)
