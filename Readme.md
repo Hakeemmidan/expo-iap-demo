@@ -34,7 +34,7 @@ It's a simple web/iOS/Android app that lets users signup, 'buy pineapples', and 
     - For a web-hook that listens for Stripe charges and creates a transaction Firestore document for the associated user if there's any (mapped using email)
 - [Stripe](https://stripe.com/)
     - For payment processing
-    - A [Stripe Payments page](https://stripe.com/docs/connect/creating-a-payments-page) will be used to not deal with creating a server, or with creating Firebase cloud functions (which require an account upgrade)
+    - A [Stripe Payments page](https://stripe.com/docs/connect/creating-a-payments-page) is used to not deal with creating a server, or with creating Firebase cloud functions (which require an account upgrade)
 
 ## Screenshots
 <img width="300px" src="assets/pineapples_app_screenshot_1.png" />
