@@ -1,5 +1,5 @@
 # Buy Pineapples
-This app is associated with [this tutorial](https://dented-laundry-e53.notion.site/Create-a-React-Native-App-iOS-Android-and-web-with-In-App-Purchases-using-Expo-Firebase-Zapier-c5d7fc9dd17e4489929fafb30376e2f9), and is used as a reference in it.
+This repo is a supporting piece of [this tutorial](https://dented-laundry-e53.notion.site/Create-a-React-Native-App-iOS-Android-and-web-with-In-App-Purchases-using-Expo-Firebase-Zapier-c5d7fc9dd17e4489929fafb30376e2f9), and is used as a reference for it.
 
 It's a simple web/iOS/Android app that lets users signup, 'buy pineapples', and view their previous transactions.
 
